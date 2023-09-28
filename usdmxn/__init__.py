@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# See: https://github.com/pr3d4t0r/usdmxn/blob/master/LICENSE.txt
+
+
 from datetime import date
 from urllib.request import HTTPError
 
