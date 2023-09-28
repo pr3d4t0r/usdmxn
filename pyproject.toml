@@ -1,0 +1,42 @@
+[build-system]
+requires = [ "setuptools" ]
+build-backend = "setuptools.build_meta"
+[metadata]
+url = "https://github.com/pr3d4t0r/usdmxn"
+[project]
+authors = [
+    {name = "Eugene Ciurana pr3d4t0r", email = "usdmxn.project@cime.net" }
+]
+classifiers = [
+    "Intended Audience :: Other Audience",
+    "Operating System :: MacOS",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+]
+description = "usdmxn - output the latest USD:MXN conversion"
+dynamic = [
+    "dependencies",
+    "version",
+]
+license = { text = 'BSD-3-Clause' }
+name = "usdmxn"  # $(PACKAGE) and package.txt
+readme = "README.md"
+requires-python = ">=3.9.9"
+[project.scripts]
+usdmxn = "usdmxn:_main"
+[tool.pytest.ini_options]
+addopts = "-sv"
+testpaths = [
+    "tests"
+]
+[tool.setuptools]
+include-package-data = true
+packages = [
+    "usdmxn",
+    # "tests", # because test modules import objects from other test modules
+]
+[tool.setuptools.dynamic]
+dependencies = { file = "requirements.txt" }
+version = { attr = "usdmxn.__VERSION__" }
+
