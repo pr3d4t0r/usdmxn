@@ -103,7 +103,7 @@ def displayResultsIn(payload):
     title = data['titulo'] # yuk spelling
     print('date\tprice')
     today = _todayISO()
-    for datum in data['datos'][-3:]:
+    for datum in data['datos'][-10:]:
         xDate = _convertMXDateToISO(datum['fecha'])
         if xDate == today:
             print('%s\t%s' % (xDate, datum['dato']))
