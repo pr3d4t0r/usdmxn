@@ -13,10 +13,7 @@ from usdmxn import displayResultsIn
 from usdmxn import fetchLatestExchangeRates
 from usdmxn import helpUser
 
-
-import os
-
-import pytest
+import sys
 
 
 # +++ globals +++
@@ -42,6 +39,10 @@ def test_assertAPIKeyInEnv():
 
     # No BANXICO_API_KEY defined:
     assert assertAPIKeyInEnv(unitTest = True)
+
+
+def test_assertArgList():
+    pass
 
 
 def test_fetchLatestExchangeRates():
@@ -74,5 +75,5 @@ def test_displayResultsIn():
 
 
 def test__main():
-    assert _main() == 0 # UNIX exit OK
+    assert _main(unitTest = True) == 0 # UNIX exit OK
 
