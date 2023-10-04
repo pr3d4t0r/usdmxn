@@ -2,6 +2,7 @@
 
 
 from datetime import date
+from datetime import timedelta
 
 from usdmxn import BANXICO_API_KEY
 from usdmxn import _convertMXDateToISO
@@ -12,8 +13,6 @@ from usdmxn import die
 from usdmxn import displayResultsIn
 from usdmxn import fetchLatestExchangeRates
 from usdmxn import helpUser
-
-import sys
 
 
 # +++ globals +++
@@ -65,9 +64,13 @@ def test__convertMXDateToISO():
 
 
 def test__todayISO():
-    today = date.today().strftime('%Y/%m/%d')
+    today = date.today()
+    tomorrow = (today+timedelta(days = 1)).strftime('%Y/%m/%d')
+    today = today.strftime('%Y/%m/%d')
 
-    assert today == _todayISO()
+    d, t = _todayISO()
+    assert d == today
+    assert t == tomorrow
 
 
 def test_displayResultsIn():
