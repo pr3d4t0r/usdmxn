@@ -3,7 +3,7 @@
 Fetches the latest exchange rate USD:MXN and dumps it to stdout.  This is a data
 feeder for an Excel Power Query data source.
 
-This tool returns the current latest USD:MXN exchange rate for fulfillment of 
+This tool returns the current latest USD:MXN exchange rate for fulfillment of
 obligations.  Is the official exchange rate for international payments.
 
 
@@ -24,11 +24,30 @@ _Token de consulta_ is Spanish for API key or API token.
 export BANXICO_API_KEY="42b4n0...69bbq"
 ```
 
-Run the command.  It doesn't take any arguments.  Output:
+Run the command.  It doesn't take any arguments.
+j
+```bash
+usdmxn
+```
+Output:
 
 ```
 date    price
 2023/09/28      17.4758
+```
+
+If you want the Diario de la Federación exchange rate:
+
+Run the command.  Use `DOF` or `d` as the argument:
+j
+```bash
+usdmxn d
+```
+Output:
+
+```
+date    price
+2023/09/21      17.4758
 ```
 
 The output is a tab-delimited table with a single entry.  Simpler import into
